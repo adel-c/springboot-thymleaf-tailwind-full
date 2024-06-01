@@ -17,7 +17,7 @@
     </thead>
     <tbody>
     <tr th:each="customer: ${customers}">
-        <td ><a th:href="@{/customer/{id}(id=${customer.id})}" th:text="'edit'+${customer.id}">edit</a></td>
+        <td ><a th:attr="hx-get=@{/customer/{id}(id=${customer.id})}" hx-target="#edit_customer" th:text="'edit'+${customer.id}">edit</a></td>
         <td th:text="${customer.name}" ></td>
         <td th:text="${customer.email}" ></td>
     </tr>

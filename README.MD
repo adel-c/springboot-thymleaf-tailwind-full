@@ -13,6 +13,7 @@ WIP DOC
 - add mapstruct?
 - add a pg client
 - handle uid and guid *
+- update generate_compose_env to check if file is here before rewrite
 
 
 ## Usage

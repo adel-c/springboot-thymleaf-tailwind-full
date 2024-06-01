@@ -11,7 +11,9 @@ Sample for a spring boot app with a frontend in thymleaf + tailwind
 - add liquibase
 - add mapstruct?
 - add a pg client
+- handle uid and guid
 
 
 ## Usage
+
 Start the app form ThymleafDemoApplication.class with spring profiles local,sample_data

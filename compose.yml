@@ -1,6 +1,6 @@
 services:
   tailwind:
-    user: 1000:1000
+    user: ${MY_UID}:${MY_GID}
     stdin_open: true
     volumes:
       - ./frontend/:/code

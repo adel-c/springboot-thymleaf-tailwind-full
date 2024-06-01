@@ -14,4 +14,4 @@ docker inspect ${dockerImage} > /dev/null 2>&1
   fi
 
 #docker build -f ./src/main/frontend/Dockerfile . -t tailwind_compiler
-docker run   -u $(id -u):$(id -g) -e RUN_WATCH=build -v .:/code ${dockerImage}
+docker run   -u ${MY_UID}:${MY_GID} -e RUN_WATCH=build -v .:/code ${dockerImage}

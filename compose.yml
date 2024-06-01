@@ -1,5 +1,7 @@
 services:
   tailwind:
+    env_file:
+      - ./.compose.env
     user: ${MY_UID}:${MY_GID}
     stdin_open: true
     volumes:

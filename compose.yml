@@ -1,0 +1,16 @@
+services:
+  tailwind:
+    user: 1000:1000
+    stdin_open: true
+    volumes:
+      - ./frontend/:/code
+    build:
+      dockerfile: frontend/tailwind/Dockerfile
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=mydatabase'
+      - 'POSTGRES_PASSWORD=secret'
+      - 'POSTGRES_USER=myuser'
+    ports:
+      - '5432:5432'

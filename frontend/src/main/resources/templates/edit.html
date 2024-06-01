@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{main_layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title th:text="'Edit '+${customer.id} ">Edit</title>
+</head>
+<body>
+
+  <form>
+      <label for="name">name</label>
+      <input name="name" id="name" th:value="${customer.name}" autocomplete="off" >
+  </form>
+
+</body>
+</html>

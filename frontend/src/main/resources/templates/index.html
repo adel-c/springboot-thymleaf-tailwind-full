@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{main_layout :: layout(~{::title}, ~{::body})}">
+<head>
+    <title>coucou</title>
+</head>
+<body>
+<p> du text</p>
+<div th:replace="~{fragments/customer_table ::customer_tables}"> </div>
+
+<div> encore du text</div>
+</body>
+</html>

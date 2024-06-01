@@ -4,4 +4,8 @@
     <changeSet id="001" author="user">
      <sqlFile path="./liquibase/001_create_table.sql" />
     </changeSet>
+
+    <changeSet id="999" author="user" context="sample_data">
+        <sqlFile path="./liquibase/999_add_sample_data.sql" />
+    </changeSet>
 </databaseChangeLog>

@@ -18,7 +18,7 @@
     </thead>
     <tbody>
     <th:block th:each="customer: ${customers}">
-        <tr th:replace="::customer_row"></tr>
+        <tr th:replace="~{::customer_row}"></tr>
     </th:block>
 
 

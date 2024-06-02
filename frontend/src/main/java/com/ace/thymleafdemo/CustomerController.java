@@ -33,14 +33,14 @@ class CustomerController {
 
     @GetMapping("/customer/{id}")
     public String user(Model model, @PathVariable String id,
-                       @RequestHeader(name = "HX-Request", required = false, defaultValue = "false") boolean hxRequest) {
+                       HxInfo hxInfo) {
         Optional<Customer> byId = customerService.findCustomerById(id);
         if (byId.isEmpty()) {
             return "notfound";
         }
         model.addAttribute("customer", byId.get());
 
-        if (hxRequest) {
+        if (hxInfo.hxRequest()) {
             return "edit::edit_customer_form";
         }
         return "edit";

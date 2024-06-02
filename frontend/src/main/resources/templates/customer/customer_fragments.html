@@ -37,7 +37,11 @@
         <td th:text="${customer.name}" ></td>
         <td th:text="${customer.email}" ></td>
         <td><a th:attr="hx-get=@{/customer/row/{id}(id=${customer.id})}" hx-swap="outerHTML" hx-target="closest tr"
-               th:text="'edit'+${customer.id}">edit</a></td>
+               th:text="'edit Inline'+${customer.id}">edit </a>
+|
+            <a th:attr="hx-get=@{/customer/{id}(id=${customer.id})}" hx-target="#edit_customer"
+               th:text="'edit '+${customer.id}">edit</a>
+        </td>
     </tr>
 </table>
 

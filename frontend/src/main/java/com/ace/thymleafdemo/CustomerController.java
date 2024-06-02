@@ -1,11 +1,10 @@
 package com.ace.thymleafdemo;
 
 import lombok.AllArgsConstructor;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -46,5 +45,22 @@ class CustomerController {
         }
         return "edit";
     }
-
+    @GetMapping("/customer/row/{id}")
+    public String editRow(Model model, @PathVariable String id,
+                       @RequestHeader(name = "HX-Request", required = false, defaultValue = "false") boolean hxRequest) {
+        Optional<Customer> byId = customerService.findCustomerById(id);
+        if (byId.isEmpty()) {
+            return "notfound";
+        }
+        model.addAttribute("customer", byId.get());
+        return "customer/customer_fragments::customer_row_edit";
+    }
+    @PutMapping(path= "/customer")
+    public String editRow(Model model,
+                           Customer customer
+                         ) {
+        Customer newcustomer= customerService.upsertCustomer(customer);
+        model.addAttribute("customer", newcustomer);
+        return "customer/customer_fragments::customer_row";
+    }
 }

@@ -9,7 +9,7 @@
     <tr>
 
         <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
-            Artist</th>
+            Name</th>
         <th class="border-b dark:border-slate-600 font-medium p-4 pr-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
             email</th>
         <th class="border-b dark:border-slate-600 font-medium p-4 pl-8 pt-0 pb-3 text-slate-400 dark:text-slate-200 text-left">
@@ -17,12 +17,28 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="customer: ${customers}">
+    <th:block th:each="customer: ${customers}">
+        <tr th:replace="::customer_row"></tr>
+    </th:block>
+
+
+    </tbody>
+</table>
+
+<table>
+    <tr th:fragment="customer_row_edit">
+        <td><input name="id" th:value="${customer.id}" type="hidden"/> <input name="name" th:value="${customer.name}"/></td>
+        <td><input name="email" th:value="${customer.email}"/></td>
+        <td><a hx-put="/customer"  hx-include="closest tr" hx-target="closest tr" hx-swap="outerHTML"
+        >Save</a></td>
+    </tr>
+
+    <tr th:fragment="customer_row" >
         <td th:text="${customer.name}" ></td>
         <td th:text="${customer.email}" ></td>
-        <td ><a th:attr="hx-get=@{/customer/{id}(id=${customer.id})}" hx-target="#edit_customer" th:text="'edit'+${customer.id}">edit</a></td>
+        <td><a th:attr="hx-get=@{/customer/row/{id}(id=${customer.id})}" hx-swap="outerHTML" hx-target="closest tr"
+               th:text="'edit'+${customer.id}">edit</a></td>
     </tr>
-    </tbody>
 </table>
 
 </body>

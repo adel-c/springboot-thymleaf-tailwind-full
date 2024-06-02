@@ -24,4 +24,9 @@ public class JdbcCustomerService implements CustomerService {
     public Optional<Customer> findCustomerById(String id) {
         return customerRepository.findById(Integer.parseInt(id)).map(JdbcCustomerService::convertEntity);
     }
+
+    @Override
+    public Customer upsertCustomer(Customer customer) {
+return customer;
+    }
 }

@@ -46,8 +46,7 @@ class CustomerController {
         return "edit";
     }
     @GetMapping("/customer/row/{id}")
-    public String editRow(Model model, @PathVariable String id,
-                       @RequestHeader(name = "HX-Request", required = false, defaultValue = "false") boolean hxRequest) {
+    public String editRow(Model model, @PathVariable String id) {
         Optional<Customer> byId = customerService.findCustomerById(id);
         if (byId.isEmpty()) {
             return "notfound";
@@ -57,8 +56,7 @@ class CustomerController {
     }
     @PutMapping(path= "/customer")
     public String editRow(Model model,
-                           Customer customer
-                         ) {
+                           Customer customer) {
         Customer newcustomer= customerService.upsertCustomer(customer);
         model.addAttribute("customer", newcustomer);
         return "customer/customer_fragments::customer_row";

@@ -6,8 +6,14 @@
 <body>
 
   <form th:fragment="edit_customer_form">
+
+
+      <input name="id" th:value="${customer.id}" type="hidden"/>
       <label for="name">name</label>
       <input name="name" id="name" th:value="${customer.name}" autocomplete="off" >
+      <input name="email" th:value="${customer.email}"/>
+      <a hx-put="/customer"  hx-headers='{"X-REDIRECT":"INDEX"}' hx-include="closest form" hx-target="closest form" hx-swap="outerHTML"
+      >Save</a>
   </form>
 
 </body>

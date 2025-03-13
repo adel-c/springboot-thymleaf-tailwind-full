@@ -142,9 +142,9 @@
                         </execution>
                     </executions>
                     <configuration>
-                        <nodeVersion>v20.14.0</nodeVersion>
+                        <nodeVersion>v22.14.0</nodeVersion>
                         <workingDirectory>tailwind</workingDirectory>
-                        <npmVersion>10.7.0</npmVersion>
+                        <npmVersion>10.9.2</npmVersion>
 
                     </configuration>
                 </plugin>

@@ -1,4 +1,4 @@
-cd /code/frontend/tailwind
+cd /code/tailwind
 npm i
 
 if [ "$RUN_WATCH" == "watch" ]; then

@@ -27,8 +27,8 @@
 
 <table>
     <tr th:fragment="customer_row_edit">
-        <td><input name="id" th:value="${customer.id}" type="hidden"/> <input name="name" th:value="${customer.name}"/></td>
-        <td><input name="email" th:value="${customer.email}"/></td>
+        <td><input  name="id" th:value="${customer.id}" type="hidden"/> <input class="input"  name="name" th:value="${customer.name}"/></td>
+        <td><input class="input"  name="email" th:value="${customer.email}"/></td>
         <td><a hx-put="/customer"  hx-include="closest tr" hx-target="closest tr" hx-swap="outerHTML"
         >Save</a></td>
     </tr>

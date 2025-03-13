@@ -10,8 +10,8 @@
 
       <input name="id" th:value="${customer.id}" type="hidden"/>
       <label for="name">name</label>
-      <input name="name" id="name" th:value="${customer.name}" autocomplete="off" >
-      <input name="email" th:value="${customer.email}"/>
+      <input class="input"  name="name" id="name" th:value="${customer.name}" autocomplete="off" >
+      <input class="input"  name="email" th:value="${customer.email}"/>
       <a hx-put="/customer"  hx-headers='{"X-REDIRECT":"INDEX"}' hx-include="closest form" hx-target="closest form" hx-swap="outerHTML"
       >Save</a>
   </form>
